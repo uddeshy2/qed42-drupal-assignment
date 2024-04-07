@@ -1,0 +1,4 @@
+name: 'Related Content Block'
+type: module
+description: 'dynamically displays a block of related articles based on specific criteria.'
+core_version_requirement: ^9.4 || ^10

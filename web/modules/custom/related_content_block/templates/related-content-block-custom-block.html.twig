@@ -1,0 +1,9 @@
+<div class="my-custom-block">
+	{% for article in related_articles %}
+		<li>
+			<a href="{{ article.article_url }}" title="{{ article.article_title }}">
+				{{ article.article_title|slice(0, 20) ~ (article.article_title|length > 20 ? '...' : '') }}
+			</a>
+		</li>
+	{% endfor %}
+</div>

@@ -1,0 +1,4 @@
+services:
+  related_content_block.articlehelper:
+    class: Drupal\related_content_block\Services\Articlehelper
+    arguments: ['@entity_type.manager', '@database']

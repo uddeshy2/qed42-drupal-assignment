@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * Implements hook_theme().
+ */
+function related_content_block_theme() {
+    return [
+      'related_content_block_custom_block' => [
+        'variables' => [
+          'related_articles' => [],
+        ],
+      ],
+    ];
+  }
