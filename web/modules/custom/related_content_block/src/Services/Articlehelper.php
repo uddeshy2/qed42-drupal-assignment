@@ -57,6 +57,7 @@ final class Articlehelper {
       ->condition('nid', $article_node_id, '<>')
       ->condition('uid', $current_author)
       ->condition('field_category', $category_id)
+      ->condition('status', 1)
       ->sort('title', 'ASC')
       ->sort('created', 'DESC')->range(0, 5)->execute();
 
@@ -66,6 +67,7 @@ final class Articlehelper {
       ->condition('nid', $article_node_id, '<>')
       ->condition('field_category', $category_id)
       ->condition('uid', $current_author, '<>')
+      ->condition('status', 1)
       ->sort('title', 'ACS')
       ->sort('created', 'DESC')->range(0, 5)->execute();
 
@@ -75,6 +77,7 @@ final class Articlehelper {
       ->condition('nid', $article_node_id, '<>')
       ->condition('field_category', $category_id, '<>')
       ->condition('uid', $current_author)
+      ->condition('status', 1)
       ->sort('title', 'ASC')
       ->sort('created', 'DESC')->range(0, 5)->execute();
 
@@ -84,6 +87,7 @@ final class Articlehelper {
       ->condition('nid', $article_node_id, '<>')
       ->condition('field_category', $category_id, '<>')
       ->condition('uid', $current_author, '<>')
+      ->condition('status', 1)
       ->sort('title', 'ASC')
       ->sort('created', 'DESC')->range(0, 5)->execute();
 
