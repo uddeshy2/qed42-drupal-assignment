@@ -40,4 +40,8 @@
 
 6. **use ddev drush uli to access site as admin**
 
+   **About the project**
+   It contains 5 dummy users with content editor roles, 50 dummy published articles, custom_module named related_content_block.
+   as per the assignment requirement: once you visit any article content page, on the side region you'll see the related articls block which will display related articles based on the priortize criteria mentioned in the requirement doc.
+
 
