@@ -76,24 +76,21 @@ final class RelatedArticleBlockBlock extends BlockBase implements ContainerFacto
         // Adding check for empty author and category values.
         $return_data = [
           "Error" => TRUE,
-          "Message" => $this->t('Author or Category for this article node is not set.'),
-        ];
-        return $build = [
-          '#theme' => 'related_content_block_custom_block',
-          '#related_articles' => $return_data,
         ];
       }
       else {
         // Fetching related articles.
         $related_articles = $this->articleHelper->fetchRelatedArticles($node->id(), $author[0]["target_id"], $category[0]["target_id"]);
-
+        $return_data = [
+          '#theme' => 'related_content_block_custom_block',
+          '#related_articles' => $related_articles,
+          '#cache' => [
+            'tags' => ['node_type:article'],
+          ],
+        ];
       }
     }
-    $build = [
-      '#theme' => 'related_content_block_custom_block',
-      '#related_articles' => $related_articles,
-    ];
-    return $build;
+    return array_key_exists('Error', $related_articles) ? [] : $return_data;
   }
 
 }

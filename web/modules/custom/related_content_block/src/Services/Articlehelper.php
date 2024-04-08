@@ -2,13 +2,15 @@
 
 namespace Drupal\related_content_block\Services;
 
-use Drupal\Core\Database\Connection;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 
 /**
  * Helper class for related content block.
  */
 final class Articlehelper {
+
+  use StringTranslationTrait;
 
   /**
    * The entity type manager.
@@ -29,12 +31,9 @@ final class Articlehelper {
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
-   * @param \Drupal\Core\Database\Connection $database
-   *   The database connection.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, Connection $database) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager) {
     $this->entityTypeManager = $entity_type_manager;
-    $this->database = $database;
   }
 
   /**
@@ -96,7 +95,7 @@ final class Articlehelper {
     if (empty($complete_list)) {
       $return_data = [
         "Error" => TRUE,
-        "Message" => 'No related Articles found.',
+        "Message" => $this->t('No related Articles found.'),
       ];
       return $return_data;
     }
